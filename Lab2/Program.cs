@@ -11,19 +11,19 @@ namespace Lab2
             //TODO: Reading LineByLine +
             //TODO: Checking results
             //TODO: Resulting table .csv
-            FileManager fl = new FileManager("addad"); 
-           List<string> strings = fl.ReadFiles();
-           Teams[] teams = new Teams[strings.Count];
-           for (int i = 0; i < strings.Count; i++)
-           {
-               teams[i] = new Teams(strings[i]);
-           }
+            FileManager fl = new FileManager("../../../../Examples");
+            List<string> strings = fl.ReadFiles();
+            Teams[] teams = new Teams[strings.Count];
+            for (int i = 0; i < strings.Count; i++)
+            {
+                teams[i] = new Teams(strings[i]);
+            }
 
-           string[] results = Teams.CreateResultingTable(teams);
-
+            string[] results = Teams.CreateResultingTable(teams);
+            foreach (var VARIABLE in results)
+            {
+                Console.WriteLine(VARIABLE);
+            }
         }
-
-        
-        
     }
 }
