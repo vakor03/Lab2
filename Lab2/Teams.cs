@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Lab2
 {
@@ -6,6 +7,23 @@ namespace Lab2
     {
         private int Points;
         private string Name;
+
+        public string name
+        {
+            get
+            {
+                return Name;
+            }
+        }
+
+        public int points
+        {
+            get
+            {
+                return Points;
+            }
+        }
+        
 
         public Teams(string str)
         {
@@ -27,9 +45,31 @@ namespace Lab2
             Points = points;
         }
 
-        public void ToString()
+        public  static string[] CreateResultingTable(Teams[] teams)
         {
-            Console.WriteLine($"Team name: {Name}, points: {Points}");
+            int[] points = teams.Select(a => a.points).ToArray();
+            string[] names = teams.Select(a => a.name).ToArray();
+            
+            for (int i = 0; i < teams.Length; i++)
+            {
+                for (int j = i; j < teams.Length - 1; j++)
+                {
+                    if (teams[j].points < teams[j+1].points)
+                    {
+                        var temp = teams[j + 1];
+                        teams[j + 1] = teams[j];
+                        teams[j] = temp;
+                    }       
+                }
+            }
+
+            return teams.Select(a=> a.ToString()).ToArray();
+            
+            
+        }
+        public string ToString()
+        {
+            return $"Team name: {Name}, points: {Points}";
         }
     }
 }
