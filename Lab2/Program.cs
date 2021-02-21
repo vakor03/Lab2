@@ -8,9 +8,12 @@ namespace Lab2
         static void Main(string[] args)
         {
             //TODO: Read and write to/from file
-            //TODO: Reading LineByLine
+            //TODO: Reading LineByLine +
             //TODO: Checking results
             //TODO: Resulting table .csv
+            /*FileManager fm = new FileManager(@"C:\Users\UserPRO\Desktop\rr");
+            string[] str = {"dgfg","dfgdfg"};
+            fm.WriteToFile(str);*/
         }
     }
 }

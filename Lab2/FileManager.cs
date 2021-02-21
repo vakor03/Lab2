@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Net.Mail;
 
 namespace Lab2
 {
@@ -29,6 +31,24 @@ namespace Lab2
             }
 
             return teamsRes;
+        }
+
+        public void WriteToFile(string[] text)
+        {
+            CreateNewFile(Path + "\\results.csv");
+            using (StreamWriter sw = new StreamWriter(Path + "\\results.csv"))
+            {
+                foreach (var line in text)
+                {
+                    sw.WriteLine(line);
+                }
+            }
+        }
+
+        public static void CreateNewFile(string path)
+        {
+            if (!File.Exists(path))
+                File.Create(path);
         }
     }
 }
