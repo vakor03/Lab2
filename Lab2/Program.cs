@@ -11,14 +11,16 @@ namespace Lab2
             //TODO: Reading LineByLine +
             //TODO: Checking results
             //TODO: Resulting table .csv
-            /*Teams team1 = new Teams("Chelsea FC,3:0,0:0,1:0,0:2,4:1,3:1,0:3,1:5,0:2,4:1");
-            Teams team2 = new Teams("Chelsee FC,0:0,0:0,1:0,0:2,4:1,3:1,0:3,1:5,0:2,4:1");
-            Console.WriteLine(String.Join("\n", Teams.CreateResultingTable( new []{team1,team2})));
-            
-            team1.ToString();*/
-            /*FileManager fm = new FileManager(@"C:\Users\UserPRO\Desktop\labs\Lab2\Examples");
-            string[] str = {"abc", "d"};
-            fm.WriteToFile(str);*/
+            FileManager fl = new FileManager("addad"); 
+           List<string> strings = fl.ReadFiles();
+           Teams[] teams = new Teams[strings.Count];
+           for (int i = 0; i < strings.Count; i++)
+           {
+               teams[i] = new Teams(strings[i]);
+           }
+
+           string[] results = Teams.CreateResultingTable(teams);
+
         }
 
         
