@@ -37,13 +37,8 @@ namespace Lab2
         {
             using (FileStream fs = new FileStream(Path + "\\results.csv", FileMode.Create))
             {
-            }
-            using (StreamWriter sw = new StreamWriter(Path + "\\results.csv"))
-            {
-                foreach (var line in text)
-                {
-                    sw.WriteLine(line);
-                }
+                byte[] array = System.Text.Encoding.Default.GetBytes(String.Join("\n", text));
+                fs.Write(array, 0, array.Length);
             }
         }
     }
