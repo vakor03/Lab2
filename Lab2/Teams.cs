@@ -47,9 +47,6 @@ namespace Lab2
 
         public  static string[] CreateResultingTable(Teams[] teams)
         {
-            int[] points = teams.Select(a => a.points).ToArray();
-            string[] names = teams.Select(a => a.name).ToArray();
-            
             for (int i = 0; i < teams.Length; i++)
             {
                 for (int j = i; j < teams.Length - 1; j++)
