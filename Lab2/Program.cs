@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Lab2
 {
@@ -10,7 +11,6 @@ namespace Lab2
             //TODO: Reading LineByLine
             //TODO: Checking results
             //TODO: Resulting table .csv
-            Console.WriteLine("Hello World!");
         }
     }
 }
