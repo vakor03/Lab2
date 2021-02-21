@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Mail;
 
 namespace Lab2
@@ -16,7 +17,7 @@ namespace Lab2
 
         public List<string> ReadFiles()
         {
-            string[] filesList = Directory.GetFiles(Path);
+            string[] filesList = Directory.GetFiles(Path).Where(a => new FileInfo(a).Extension==".csv").ToArray();
             List<string> teamsRes = new List<string>();
             foreach (var filePath in filesList)
             {

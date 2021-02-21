@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Lab2
 {
@@ -18,12 +19,10 @@ namespace Lab2
             {
                 teams[i] = new Teams(strings[i]);
             }
-
-            string[] results = Teams.CreateResultingTable(teams);
-            foreach (var VARIABLE in results)
-            {
-                Console.WriteLine(VARIABLE);
-            }
+            fl.WriteToFile(Teams.CreateResultingTable(teams));
+            
+            
+           
         }
     }
 }

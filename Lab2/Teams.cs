@@ -61,7 +61,7 @@ namespace Lab2
 
         public string ToString()
         {
-            return $"Team name: {Name}, points: {Points}";
+            return $"{Name},{Points}";
         }
     }
 }
