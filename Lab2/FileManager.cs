@@ -35,7 +35,9 @@ namespace Lab2
 
         public void WriteToFile(string[] text)
         {
-            CreateNewFile(Path + "\\results.csv");
+            using (FileStream fs = new FileStream(Path + "\\results.csv", FileMode.Create))
+            {
+            }
             using (StreamWriter sw = new StreamWriter(Path + "\\results.csv"))
             {
                 foreach (var line in text)
@@ -43,12 +45,6 @@ namespace Lab2
                     sw.WriteLine(line);
                 }
             }
-        }
-
-        public static void CreateNewFile(string path)
-        {
-            if (!File.Exists(path))
-                File.Create(path);
         }
     }
 }
