@@ -8,7 +8,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            //TODO: Read and write to/from file
+            //TODO: Read and write to/from file +
             //TODO: Reading LineByLine +
             //TODO: Checking results
             //TODO: Resulting table .csv

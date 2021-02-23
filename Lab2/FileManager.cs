@@ -17,7 +17,7 @@ namespace Lab2
 
         public List<string> ReadFiles()
         {
-            string[] filesList = Directory.GetFiles(Path).Where(a => new FileInfo(a).Extension==".csv").ToArray();
+            string[] filesList = Directory.GetFiles(Path).Where(a => new FileInfo(a).Extension==".csv" && new FileInfo(a).Name != "results.csv").ToArray();
             List<string> teamsRes = new List<string>();
             foreach (var filePath in filesList)
             {
