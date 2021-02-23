@@ -2,19 +2,16 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net.Mail;
 
 namespace Lab2
 {
     public class FileManager
     {
         private string Path;
-
         public FileManager(string path)
         {
             Path = path;
         }
-
         public List<string> ReadFiles()
         {
             string[] filesList = Directory.GetFiles(Path).Where(a => new FileInfo(a).Extension==".csv" && new FileInfo(a).Name != "results.csv").ToArray();
@@ -30,10 +27,8 @@ namespace Lab2
                     }
                 }
             }
-
             return teamsRes;
         }
-
         public void WriteToFile(string[] text)
         {
             using (FileStream fs = new FileStream(Path + "\\results.csv", FileMode.Create))

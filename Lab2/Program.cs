@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 namespace Lab2
 {
@@ -12,17 +11,16 @@ namespace Lab2
             //TODO: Reading LineByLine +
             //TODO: Checking results
             //TODO: Resulting table .csv
+            
             FileManager fl = new FileManager("../../../../Examples");
             List<string> strings = fl.ReadFiles();
-            Teams[] teams = new Teams[strings.Count];
+            Team[] teams = new Team[strings.Count];
             for (int i = 0; i < strings.Count; i++)
             {
-                teams[i] = new Teams(strings[i]);
+                teams[i] = new Team(strings[i]);
             }
-            fl.WriteToFile(Teams.CreateResultingTable(teams));
-            
-            
-           
+            fl.WriteToFile(Team.CreateResultingTable(teams));
+            Console.WriteLine("Done");
         }
     }
 }

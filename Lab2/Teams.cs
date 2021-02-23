@@ -3,23 +3,15 @@ using System.Linq;
 
 namespace Lab2
 {
-    public class Teams
+    public class Team
     {
         private int Points;
         private string Name;
-
-        public string name
-        {
-            get { return Name; }
-        }
-
         public int points
         {
             get { return Points; }
         }
-
-
-        public Teams(string str)
+        public Team(string str)
         {
             string[] scores = str.Split(',');
             int points = 0;
@@ -37,11 +29,10 @@ namespace Lab2
                     points += 1;
                 }
             }
-
             Points = points;
         }
 
-        public static string[] CreateResultingTable(Teams[] teams)
+        public static string[] CreateResultingTable(Team[] teams)
         {
             for (int i = 1; i < teams.Length; i++)
             {
