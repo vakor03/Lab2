@@ -11,25 +11,33 @@ namespace Lab2
         {
             get { return Points; }
         }
-        public Team(string str)
+        public Team(string str, string[] strs)
         {
             string[] scores = str.Split(',');
             int points = 0;
             Name = scores[0];
-            for (int i = 1; i < scores.Length; i++)
+            if (!strs.Contains(Name))
             {
-                int point1 = Int32.Parse(scores[i].Split(':')[0]);
-                int point2 = Int32.Parse(scores[i].Split(':')[1]);
-                if (point1 > point2)
+                for (int i = 1; i < scores.Length; i++)
                 {
-                    points += 3;
+                    int point1 = Int32.Parse(scores[i].Split(':')[0]);
+                    int point2 = Int32.Parse(scores[i].Split(':')[1]);
+                    if (point1 > point2)
+                    {
+                        points += 3;
+                    }
+                    else if (point1 == point2)
+                    {
+                        points += 1;
+                    }
                 }
-                else if (point1 == point2)
-                {
-                    points += 1;
-                }
+                Points = points;
             }
-            Points = points;
+            else
+            {
+                Points = -1;
+            }
+            
         }
 
         public static string[] CreateResultingTable(Team[] teams)
@@ -46,8 +54,7 @@ namespace Lab2
                     }
                 }
             }
-
-            return teams.Select(a => a.ToString()).ToArray();
+            return teams.Where(x => x.points!=-1).Select(a => a.ToString()).ToArray();
         }
 
         public string ToString()
